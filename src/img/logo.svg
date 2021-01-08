@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="150mm"
+   height="50mm"
+   viewBox="0 0 150 50"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="983"
+     id="namedview25"
+     showgrid="false"
+     inkscape:zoom="1.4440907"
+     inkscape:cx="330.0417"
+     inkscape:cy="56.42976"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1267"
+     inkscape:document-rotation="0"
+     inkscape:pagecheckerboard="true" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powermask"
+       id="path-effect1275"
+       is_visible="true"
+       lpeversion="1"
+       uri="#mask-powermask-path-effect1275"
+       invert="false"
+       hide_mask="false"
+       background="true"
+       background_color="#ffffffff" />
+    <rect
+       x="2.0080957"
+       y="1.3663967"
+       width="155.9838"
+       height="26.429148"
+       id="rect963" />
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask-powermask-path-effect856">
+      <path
+         id="mask-powermask-path-effect856_box"
+         style="fill:#ffffff;fill-opacity:1"
+         d="M 47.910637,38.566841 H 108.48697 V 60.073216 H 47.910637 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.69px;line-height:1.25;font-family:'PT Mono';-inkscape-font-specification:'PT Mono';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24225"
+         x="50.891029"
+         y="47.00729"
+         id="text854"
+         transform="scale(0.97148708,1.0293498)"><tspan
+           id="tspan852"
+           x="50.891029"
+           y="47.00729"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gugi;-inkscape-font-specification:Gugi;stroke-width:0.24225">speedRead_</tspan></text>
+    </mask>
+    <filter
+       id="mask-powermask-path-effect856_inverse"
+       style="color-interpolation-filters:sRGB"
+       height="100"
+       width="100"
+       x="-50"
+       y="-50">
+      <feColorMatrix
+         id="mask-powermask-path-effect856_primitive1"
+         values="1"
+         type="saturate"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         id="mask-powermask-path-effect856_primitive2"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask-powermask-path-effect1275">
+      <path
+         id="mask-powermask-path-effect1275_box"
+         style="fill:#ffffff;fill-opacity:1"
+         d="M 6.1740876,-0.37789864 H 153.69492 V 29.539841 H 6.1740876 Z" />
+      <text
+         xml:space="preserve"
+         id="text1273"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Gugi;-inkscape-font-specification:Gugi;white-space:pre;shape-inside:url(#rect963);fill:#000000;fill-opacity:1;stroke:none;"
+         transform="matrix(2.2816667,0,0,2.2816667,4.0602583,-4.2232903)"><tspan
+           x="2.0078125"
+           y="11.770571"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gugi;-inkscape-font-specification:Gugi">sprintReed_</tspan></tspan></text>
+    </mask>
+    <filter
+       id="mask-powermask-path-effect1275_inverse"
+       inkscape:label="filtermask-powermask-path-effect1275"
+       style="color-interpolation-filters:sRGB"
+       height="100"
+       width="100"
+       x="-50"
+       y="-50">
+      <feColorMatrix
+         id="mask-powermask-path-effect1275_primitive1"
+         values="1"
+         type="saturate"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         id="mask-powermask-path-effect1275_primitive2"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g1267"
+     transform="translate(-4.9345043,2.4815301)">
+    <path
+       style="fill:#35393d;fill-opacity:1;stroke-width:0.128609"
+       d="M 7.1740876,14.580971 V 0.62210136 H 79.934502 152.69492 V 14.580971 28.539841 H 79.934502 7.1740876 Z"
+       id="path959"
+       mask="url(#mask-powermask-path-effect1275)"
+       inkscape:path-effect="#path-effect1275"
+       inkscape:original-d="M 7.1740876,14.580971 V 0.62210136 H 79.934502 152.69492 V 14.580971 28.539841 H 79.934502 7.1740876 Z" />
+    <rect
+       style="fill:#35393d;fill-opacity:1;stroke-width:1.33109"
+       id="rect983-3"
+       width="47.625"
+       height="2.6458333"
+       x="7.1740875"
+       y="31.185675" />
+    <rect
+       style="fill:#35393d;fill-opacity:1;stroke-width:1.08683"
+       id="rect983-7"
+       width="31.75"
+       height="2.6458333"
+       x="12.465753"
+       y="36.477341" />
+    <rect
+       style="fill:#35393d;fill-opacity:1;stroke-width:1.29358"
+       id="rect983-35"
+       width="44.979164"
+       height="2.6458333"
+       x="7.1740875"
+       y="41.769005" />
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke-width:0.31374"
+       id="rect983-3-6-2-9"
+       width="2.6458333"
+       height="2.6458333"
+       x="57.44492"
+       y="31.185675" />
+    <rect
+       style="fill:#35393d;fill-opacity:1;stroke-width:0.768503"
+       id="rect983-3-6-1"
+       width="15.875"
+       height="2.6458333"
+       x="62.736584"
+       y="31.185675" />
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke-width:0.31374"
+       id="rect983-3-6-2-2-7"
+       width="2.6458333"
+       height="2.6458333"
+       x="7.1740875"
+       y="36.477341" />
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke-width:0.31374"
+       id="rect983-3-6-2-2-7-3"
+       width="2.6458333"
+       height="2.6458333"
+       x="54.799084"
+       y="41.769005" />
+    <rect
+       style="fill:#35393d;fill-opacity:1;stroke-width:0.254323"
+       id="rect983-3-6-2-6-2"
+       width="1.9370267"
+       height="2.3747797"
+       x="139.26259"
+       y="24.281435" />
+    <rect
+       style="fill:#35393d;fill-opacity:1;stroke-width:0.27715"
+       id="rect983-3-6-2-6-2-6-1"
+       width="1.9370267"
+       height="2.820215"
+       x="143.13664"
+       y="24.058716" />
+  </g>
+</svg>
