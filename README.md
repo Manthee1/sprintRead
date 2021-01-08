@@ -26,7 +26,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 🔼 Updated  
 🧹 Reorganized/Revamped  
 ➕ Added  
-➖ Removed
+➖ Removed  
 💅 Polished  
 ⚒️ Started work  
 🏁 Finished  
