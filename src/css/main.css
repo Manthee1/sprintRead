@@ -1,0 +1,14 @@
+/** @format */
+
+html {
+	font-family: "Courier New", Courier, monospace;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
+	background-color: #35393d;
+}
