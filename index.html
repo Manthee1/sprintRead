@@ -6,11 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/main.css">
     <script defer src="./src/js/main.js"></script>
-    <title>speedRead</title>
+    <link rel="shortcut icon" href="./src/img/logo.svg" type="image/x-icon">
+    <title>sprintRead</title>
 </head>
 
 <body>
-    <h1>speedRead</h1>
+    <nav>
+        <logo><img height='100px' src='./src/img/logo.svg'></logo>
+    </nav>
+    <setup class="window_container">
+        <form class="text_input ">
+            <h1 class='titlebar'>Text input:</h1>
+            <textarea name='text' class='form_content'></textarea>
+            <input value='Read_' type='submit'>
+        </form>
+        <form class="settings">
+            <h1 class='titlebar'>Settings:</h1>
+            <settings class='form_content'>
+            </settings>
+            <input value='Save_' type='submit'>
+        </form>
+
+    </setup>
+
+    <read class='window_container'>
+        <read_display><text></text>
+            <controls>
+                <exit onclick="stopReading()" />
+            </controls>
+        </read_display>
+        <footer>
+        </footer>
+    </read>
 </body>
 
 </html>

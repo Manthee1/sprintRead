@@ -1,14 +1,253 @@
 /** @format */
 
+@font-face {
+	font-family: Gugi;
+	src: url("../font/Gugi-Regular.ttf");
+}
+
 html {
-	font-family: "Courier New", Courier, monospace;
+	font-family: Quicksand;
+
+	--background-color: #0f0f0f;
+	--text: #f0f8ff;
+	--color1: #35393d;
+	--color2: #4d4d4d;
+
+	--button: #ffee58;
+	--button-bg: var(--background-color);
+	--text_input-width: 80%;
+	--form_height: 80%;
+	--settings_form_width: 30%;
+	--text_input_form_width: 70%;
+	--red: #cd5c5c;
+}
+
+input[type="button"],
+input[type="submit"] {
+	border: 2px var(--button) solid;
+	background-color: var(--button);
+	color: var(--button-bg);
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+	background-color: transparent;
+	color: var(--button);
+}
+
+* {
+	color: var(--text);
+	font-family: Gugi;
+	color: aliceblue;
+	font-size: 20px;
+	outline: none;
 }
 
 body {
+	display: flex;
+	flex-flow: column nowrap;
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: auto;
 	width: 100vw;
 	height: 100vh;
-	background-color: #1f2430;
+	background-color: #0f0f0f;
+	border: 4px solid var(--color1);
+}
+
+nav {
+	width: 100%;
+	height: auto;
+	z-index: 10;
+	position: absolute;
+}
+
+logo {
+	display: inline-block;
+	width: auto;
+	padding: 5px;
+}
+
+.window_container {
+	display: flex;
+	flex: 1 1 0;
+	flex-flow: row nowrap;
+	top: 0px;
+	left: 0px;
+	width: 90%;
+	margin: auto;
+	justify-content: center;
+	align-content: center;
+}
+
+/* .text_input {
+	width: var(--text_input-width);
+	height: var(--form_height);
+} */
+
+form {
+	display: flex;
+	flex-flow: column nowrap;
+	flex: 1 1 auto;
+	top: 0px;
+	left: 0px;
+	margin: auto 20px;
+	height: var(--form_height);
+	justify-content: center;
+	align-content: center;
+}
+
+.text_input {
+	width: var(--text_input_form_width);
+}
+.settings {
+	width: var(--settings_form_width);
+}
+
+form > * {
+	flex: 0 0 auto;
+	margin: 0px;
+	padding: 10px;
+}
+
+.titlebar {
+	height: 40px;
+	line-height: 40px;
+	background-color: var(--color2);
+	padding: 0px 10px;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.form_content {
+	height: 50%;
+	resize: none;
+	border: 4px solid var(--color2);
+	background-color: var(--color1);
+	transition: border-color ease 0.3s;
+}
+
+form > input {
+	/* width: 20%; */
+	padding: 10px 50px;
+	margin: 5px 0px;
+	margin-left: auto;
+	align-self: end;
+	justify-self: right;
+}
+.settings {
+	display: none;
+}
+
+/* settings {
+	display: flex;
+	flex-flow: column;
+	padding: 10px 0px;
+	padding: 5;
+}
+
+settings > div {
+	display: flex;
+	border-bottom: 2px solid var(--color1);
+}
+
+settings > div > * {
+	padding: 2px 10px;
+}
+
+settings > div > setting_input {
+	flex: 1 1 auto;
+	width: 10px;
+	text-align: right;
+}
+settings > div > setting_input > input {
+	width: 20px;
+	height: 20px;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+settings > div > setting_input > input[type="value"] {
+	width: 150px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+	/* border-radius: 5px; */
+/* cursor: pointer;
+} */
+/* 
+read {
+	display: none !important;
+} */
+
+read_display {
+	display: flex;
+	flex-flow: column nowrap;
+	background-color: var(--color1);
+
+	margin: auto;
+}
+
+read_display > text {
+	flex: 1 1 auto;
+	margin: auto;
+	border: solid var(--color1) 8px;
+	height: 160px;
+	width: 300px;
+	padding: 10px;
+	line-height: 160px;
+	background-color: var(--background-color);
+	text-align: center;
+	font-size: 300%;
+}
+
+read_display > controls {
+	width: 100%;
+	margin: 5px;
+}
+
+footer {
+	position: absolute;
+	display: flex;
+	width: 100%;
+	height: 50px;
+	bottom: 0px;
+	left: 0px;
+	background-color: var(--color1);
+}
+
+exit {
+	display: inline-block;
+	margin: auto 5px;
+	background: url("../img/X.svg");
+	background-color: var(--red);
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+	background-color: transparent;
+	width: 20px;
+}
+::-webkit-scrollbar-button {
+}
+::-webkit-scrollbar-corner {
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--color1);
+	width: 100%;
+	border-radius: 100px;
+	border: 6px solid var(--background-color);
+}
+::-webkit-scrollbar-track {
 }
