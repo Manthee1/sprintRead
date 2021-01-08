@@ -4,7 +4,7 @@ A web based speed reading app
 
 ## How to use
 
-Just head on over to : [sprintRead](https://manthee1.github.io/sprintRead/)
+Just head on over to [sprintRead](https://manthee1.github.io/sprintRead/)
 
 ## Contributing
 
