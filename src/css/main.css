@@ -210,15 +210,10 @@ input[type="number"] {
 	background-color: transparent;
 	width: 20px;
 }
-::-webkit-scrollbar-button {
-}
-::-webkit-scrollbar-corner {
-}
+
 ::-webkit-scrollbar-thumb {
 	background-color: var(--color1);
 	width: 100%;
 	border-radius: 100px;
 	border: 6px solid var(--background-color);
-}
-::-webkit-scrollbar-track {
 }
