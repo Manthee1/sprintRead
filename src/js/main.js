@@ -13,15 +13,9 @@ updateWordScreenTime = () => {
     //- 60 just as a weigh.
 }
 
-
 text_input.addEventListener('submit', (event) => {
     event.preventDefault();
-
-
     form_data = new FormData(text_input);
-
-
-
     startReading(form_data.get('text'))
 });
 
@@ -39,28 +33,26 @@ async function startReading(text) {
     word = '';
     textArrayIndex = 0;
     setWordDisplay("Press space to start");
-
 }
 
-function startMainTimeOutLoop() {
-    stopMainTimeOutLoop();
-    readingInterval = setInterval(() => {
-        if (textArrayIndex >= text_array.length) {
-            read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
-            stopMainTimeOutLoop();
-        }
-        word = text_array[textArrayIndex];
-        setWordDisplay(word);
-        if (read.style.display != "flex") stopMainTimeOutLoop();
-        textArrayIndex++
-        startMainTimeOutLoop()
-    }, wordScreenTime + word.length * 10);
-}
-
-function stopMainTimeOutLoop() {
-
-    typeof readingInterval == 'number' && clearInterval(readingInterval)
-    readingInterval = false
+function mainTimeOutLoop(start) {
+    if (start) {
+        mainTimeOutLoop(false);
+        readingInterval = setInterval(() => {
+            if (textArrayIndex >= text_array.length) {
+                read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
+                mainTimeOutLoop(false);
+            }
+            word = text_array[textArrayIndex];
+            setWordDisplay(word);
+            if (read.style.display != "flex") mainTimeOutLoop(false);
+            textArrayIndex++
+            mainTimeOutLoop(true)
+        }, wordScreenTime + word.length * 10);
+    } else {
+        typeof readingInterval == 'number' && clearInterval(readingInterval)
+        readingInterval = false
+    }
 }
 
 function stopReading() {
@@ -89,10 +81,10 @@ document.body.addEventListener('keydown', keyControlHandler = async (event) => {
         if (textArrayIndex < 0) textArrayIndex = 0;
         else if (textArrayIndex > text_array.length - 1) textArrayIndex = text_array.length--;
         if (readingInterval) {
-            stopMainTimeOutLoop();
+            mainTimeOutLoop(false);
             typeof pauseIn1000 != 'undefined' && clearTimeout(pauseIn1000);
             pauseIn1000 = setTimeout(() => {
-                startMainTimeOutLoop()
+                mainTimeOutLoop(true)
             }, 500);
         }
 
@@ -100,8 +92,8 @@ document.body.addEventListener('keydown', keyControlHandler = async (event) => {
     }
 
     else if (event.keyCode == 32 /*space*/) {
-        if (readingInterval) stopMainTimeOutLoop()
-        else startMainTimeOutLoop()
+        if (readingInterval) mainTimeOutLoop(false)
+        else mainTimeOutLoop(true)
     }
 });
 
