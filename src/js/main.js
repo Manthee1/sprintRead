@@ -6,6 +6,7 @@ footer_text = document.querySelector('footer > text');
 read_display_text = document.querySelector('read_display > text');
 text_input = document.querySelector('.text_input');
 
+readingInterval = false;
 wpm = 200;
 updateWordScreenTime = () => {
     wordScreenTime = ((60 / wpm) * 1000) - 60; //(sec / wpm ) * 1000  - to convert it onto milliseconds
@@ -36,23 +37,31 @@ async function startReading(text) {
     footer_text.innerHTML = text_array.map(x => `<w>${x}</w>`).join(' ')
     updateWordScreenTime();
     word = '';
+    textArrayIndex = 0;
+    setWordDisplay("Press space to start");
 
-    for (textArrayIndex = 0; textArrayIndex < text_array.length; textArrayIndex++) {
-        if (pause == true) {
-            await delay(10)
-            textArrayIndex--
-            continue;
-        }
-
-        word = text_array[textArrayIndex];
-
-        setWordDisplay(word)
-        if (read.style.display != "flex") break;
-        await delay(wordScreenTime + word.length * 10)
-    }
-    read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
 }
 
+function startMainTimeOutLoop() {
+    stopMainTimeOutLoop();
+    readingInterval = setInterval(() => {
+        if (textArrayIndex >= text_array.length) {
+            read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
+            stopMainTimeOutLoop();
+        }
+        word = text_array[textArrayIndex];
+        setWordDisplay(word);
+        if (read.style.display != "flex") stopMainTimeOutLoop();
+        textArrayIndex++
+        startMainTimeOutLoop()
+    }, wordScreenTime + word.length * 10);
+}
+
+function stopMainTimeOutLoop() {
+
+    typeof readingInterval == 'number' && clearInterval(readingInterval)
+    readingInterval = false
+}
 
 function stopReading() {
     setup.style.display = "";
@@ -68,7 +77,7 @@ function setWordDisplay(word) {
     read_display_text.innerHTML = word;
 }
 
-async function keyControlHandler(event) {
+document.body.addEventListener('keydown', keyControlHandler = async (event) => {
     if (read.style.display != "flex") return false;
     if (event.keyCode == 27) { stopReading() } // Escape
     else if (event.keyCode == 38 /*up*/ || event.keyCode == 40 /*down*/) {
@@ -79,27 +88,23 @@ async function keyControlHandler(event) {
         (textArrayIndex += event.keyCode - 38)
         if (textArrayIndex < 0) textArrayIndex = 0;
         else if (textArrayIndex > text_array.length - 1) textArrayIndex = text_array.length--;
-        typeof pauseIn1000 != 'undefined' && clearTimeout(pauseIn1000);
-        pauseIn1000 = setTimeout(() => {
-            pause = false;
-        }, 500);
-        pause = true;
+        if (readingInterval) {
+            stopMainTimeOutLoop();
+            typeof pauseIn1000 != 'undefined' && clearTimeout(pauseIn1000);
+            pauseIn1000 = setTimeout(() => {
+                startMainTimeOutLoop()
+            }, 500);
+        }
+
         setWordDisplay(text_array[textArrayIndex])
-        updateWordScreenTime()
     }
 
     else if (event.keyCode == 32 /*space*/) {
-        if (pause) pause = false;
-        else pause = true;
+        if (readingInterval) stopMainTimeOutLoop()
+        else startMainTimeOutLoop()
     }
+});
 
-    //up = 38
-    //down = 40
-    //left = 37
-    //right = 39
-    //space = 32
-
-}
 
 
 function delay(timeDelay) {
