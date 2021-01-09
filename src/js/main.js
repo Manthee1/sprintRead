@@ -38,9 +38,14 @@ async function startReading(text) {
     for (let i = 0; i < text_array.length; i++) {
         let word = text_array[i];
         read_display_text.style.fontSize = ''
-        if (word.length > 8) read_display_text.style.fontSize = (300 - word.length * 8) + "%" // make sure the text fits te display
+        if (word.length > 8) {
+            read_display_text.style.fontSize = (300 - word.length * 8) + "%";// make sure the text fits te display
+        }
         read_display_text.innerHTML = word;
+        if (word.length > 8) {
+            await delay(word.length * 10)
 
+        }
         await delay(wordScreenTime)
         if (read.style.display != "flex") break;
     }
