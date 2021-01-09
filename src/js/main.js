@@ -1,10 +1,10 @@
 setup = document.querySelector('setup');
 read = document.querySelector('read');
+footer = document.querySelector('footer');
+footer_text = document.querySelector('footer > text');
 
-read_display = document.querySelector('read_display');
 read_display_text = document.querySelector('read_display > text');
 text_input = document.querySelector('.text_input');
-text_input_button = document.querySelector('.text_input > input');
 text_input.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -19,34 +19,40 @@ text_input.addEventListener('submit', (event) => {
 read.style.display = "none";
 
 async function startReading(text) {
-
     setup.style.display = "none";
     read.style.display = "flex";
+    text.replaceAll('\n', ' ')
     text_array = text.split(' ')
     timeToWait = (60 / 200) * 1000;
-
-    document.querySelector('exit').addEventListener('click', event => {
-        event.preventDefault();
-        console.log('click');
-        stopReading();
-
-    })
+    document.body.focus()
     // await delay(4000)
-
+    footer_text.innerHTML = text_array.map(x => `<w>${x}</w>`).join(' ')
     for (const word of text_array) {
         if (read.style.display != "flex") break;
-        console.log(word, word.length);
         if (word.length > 8) read_display_text.style.fontSize = (200 - word.length) + "%"
         read_display_text.innerHTML = word;
         await delay(timeToWait)
     }
-    document.querySelector('controls').innerHTML += "end_"
+    read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
 
 }
 
 function stopReading() {
     setup.style.display = "";
     read.style.display = "none";
+}
+
+
+function keyControlHandler(event) {
+    console.log(event);
+    if (read.style.display != "flex") return false;
+    if (event.keyCode == 27) { stopReading() } // Escape
+    //up = 38
+    //down = 40
+    //left = 37
+    //right = 39
+    //space = 32
+
 }
 
 
