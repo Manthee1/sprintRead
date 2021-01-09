@@ -5,6 +5,13 @@ footer_text = document.querySelector('footer > text');
 
 read_display_text = document.querySelector('read_display > text');
 text_input = document.querySelector('.text_input');
+
+wpm = 200;
+setWordScreenTime = () => {
+    wordScreenTime = (60 / wpm) * 1000; //(sec / wpm ) * 1000  - to convert it onto milliseconds
+}
+
+
 text_input.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -17,21 +24,19 @@ text_input.addEventListener('submit', (event) => {
 });
 
 read.style.display = "none";
-
 async function startReading(text) {
     setup.style.display = "none";
     read.style.display = "flex";
     text.replaceAll('\n', ' ')
     text_array = text.split(' ')
-    timeToWait = (60 / 200) * 1000;
     document.body.focus()
-    // await delay(4000)
+    setWordScreenTime();
     footer_text.innerHTML = text_array.map(x => `<w>${x}</w>`).join(' ')
     for (const word of text_array) {
         if (read.style.display != "flex") break;
         if (word.length > 8) read_display_text.style.fontSize = (200 - word.length) + "%"
         read_display_text.innerHTML = word;
-        await delay(timeToWait)
+        await delay(wordScreenTime)
     }
     read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
 
@@ -47,6 +52,10 @@ function keyControlHandler(event) {
     console.log(event);
     if (read.style.display != "flex") return false;
     if (event.keyCode == 27) { stopReading() } // Escape
+    if (event.keyCode == 38 || event.keyCode == 40) {
+        wpm > 20 && wpm < 800 && (wpm += -(event.keyCode - 39) * 10) // get either -1 or 1 and 10x time it. clever right?
+        setWordScreenTime();
+    }
     //up = 38
     //down = 40
     //left = 37
