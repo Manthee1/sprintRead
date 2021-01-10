@@ -38,7 +38,7 @@ const mainTimeoutLoop = (start) => {
         mainTimeoutLoop(false);
         controls_text.setAttribute('darker', true)
         readingInterval = setInterval(() => {
-            if (textArrayIndex >= text_array.length - 1) {
+            if (textArrayIndex >= text_array.length) {
                 read_display_word.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
                 mainTimeoutLoop(false);
             } else {
