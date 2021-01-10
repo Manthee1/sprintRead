@@ -28,7 +28,7 @@ async function startReading(text) {
     updateWordScreenTime();
     word = '';
     textArrayIndex = 0;
-    setWordDisplay("Press space to start");
+    setDisplayWord("Press space to start");
 }
 
 const mainTimeoutLoop = (start) => {
@@ -41,7 +41,7 @@ const mainTimeoutLoop = (start) => {
 
             } else {
                 word = text_array[textArrayIndex];
-                setWordDisplay(word);
+                setDisplayWord(word);
                 if (read.style.display != "flex") mainTimeoutLoop(false);
                 textArrayIndex++
                 mainTimeoutLoop(true)
@@ -59,7 +59,7 @@ function stopReading() {
 }
 
 
-function setWordDisplay(word) {
+function setDisplayWord(word) {
     read_display_text.style.fontSize = ''
     if (word.length > 8) {
         read_display_text.style.fontSize = (300 - word.length * 8) + "%";// make sure the text fits te display
@@ -86,7 +86,7 @@ document.body.addEventListener('keydown', keyControlHandler = async (event) => {
             }, 500);
         }
 
-        setWordDisplay(text_array[textArrayIndex])
+        setDisplayWord(text_array[textArrayIndex])
     }
 
     else if (event.keyCode == 32 /*space*/) {

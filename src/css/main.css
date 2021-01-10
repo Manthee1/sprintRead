@@ -153,7 +153,7 @@ read_display {
 	margin: auto;
 }
 
-read_display > text {
+read_display > word {
 	flex: 1 1 auto;
 	margin: auto;
 	border: solid var(--color1) 8px;
