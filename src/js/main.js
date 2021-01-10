@@ -3,7 +3,7 @@ read = document.querySelector('read');
 footer = document.querySelector('footer');
 footer_text = document.querySelector('footer > text');
 
-read_display_text = document.querySelector('read_display > text');
+read_display_word = document.querySelector('read_display > word');
 text_input = document.querySelector('.text_input');
 
 readingInterval = false;
@@ -36,7 +36,7 @@ const mainTimeoutLoop = (start) => {
         mainTimeoutLoop(false);
         readingInterval = setInterval(() => {
             if (textArrayIndex >= text_array.length - 1) {
-                read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
+                read_display_word.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
                 mainTimeoutLoop(false);
 
             } else {
@@ -60,11 +60,11 @@ function stopReading() {
 
 
 function setDisplayWord(word) {
-    read_display_text.style.fontSize = ''
+    read_display_word.style.fontSize = ''
     if (word.length > 8) {
-        read_display_text.style.fontSize = (300 - word.length * 8) + "%";// make sure the text fits te display
+        read_display_word.style.fontSize = (300 - word.length * 8) + "%";// make sure the text fits te display
     }
-    read_display_text.innerHTML = word;
+    read_display_word.innerHTML = word;
 }
 
 document.body.addEventListener('keydown', keyControlHandler = async (event) => {
