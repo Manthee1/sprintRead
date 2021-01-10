@@ -8,16 +8,12 @@ text_input = document.querySelector('.text_input');
 
 readingInterval = false;
 wpm = 200;
-updateWordScreenTime = () => {
+const updateWordScreenTime = () => {
     wordScreenTime = ((60 / wpm) * 1000) - 60; //(sec / wpm ) * 1000  - to convert it onto milliseconds
     //- 60 just as a weigh.
 }
 
-text_input.addEventListener('submit', (event) => {
-    event.preventDefault();
-    form_data = new FormData(text_input);
-    startReading(form_data.get('text'))
-});
+
 
 read.style.display = "none";
 async function startReading(text) {
@@ -99,16 +95,12 @@ document.body.addEventListener('keydown', keyControlHandler = async (event) => {
     }
 });
 
+text_input.addEventListener('submit', (event) => {
+    event.preventDefault();
+    form_data = new FormData(text_input);
+    startReading(form_data.get('text'))
+});
 
-
-function delay(timeDelay) {
-    timeDelay = timeDelay || 2000;
-    return new Promise(done => {
-        setTimeout(() => {
-            done();
-        }, timeDelay);
-    });
-}
 
 
 
