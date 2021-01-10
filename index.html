@@ -37,10 +37,31 @@ Voluptate consectetur voluptate Lorem ad commodo laborum ea eu id aute ut ad. Ad
     </setup>
 
     <read class='window_container'>
+
+
         <read_display>
             <word></word>
-
+            <controls_text>
+                <div><text onclick="keyControlHandler({keyCode:27})">[ESC]</text>
+                    <action_text>Back</action_text>
+                </div>
+                <div><text><span onclick="keyControlHandler({keyCode:38})">[UP]</span> / <span
+                            onclick="keyControlHandler({keyCode:40})">[DOWN]</span></text>
+                    <action_text>WPM: <wpm></wpm>
+                    </action_text>
+                </div>
+                <div><text><span onclick="keyControlHandler({keyCode:37})">[LEFT]</span> / <span
+                            onclick="keyControlHandler({keyCode:39})">[RIGHT]</span></text>
+                    <action_text>Word back / forward</action_text>
+                </div>
+                <div><text onclick="keyControlHandler({keyCode:32})">[SPACE]</text>
+                    <action_text>Pause</action_text>
+                </div>
+            </controls_text>
         </read_display>
+
+
+
         <footer>
             <arrow>/\</arrow>
             <text></text>

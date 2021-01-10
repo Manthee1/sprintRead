@@ -146,11 +146,16 @@ form > input {
 	display: none;
 }
 
+read {
+	flex-flow: column nowrap !important;
+}
+
 read_display {
 	display: flex;
 	flex-flow: column nowrap;
-	background-color: var(--color1);
+	/* background-color: var(--color1); */
 	margin: auto;
+	margin-bottom: 100px;
 }
 
 read_display > word {
@@ -164,6 +169,46 @@ read_display > word {
 	background-color: var(--background-color);
 	text-align: center;
 	font-size: 300%;
+}
+
+controls_text {
+	position: relative;
+	/* left: 0px; */
+	margin: 50px auto;
+	margin-bottom: 100px;
+	overflow: visible;
+	-webkit-user-select: none;
+}
+
+controls_text[darker="true"] * {
+	color: #35393d;
+}
+controls_text > div {
+	display: flex;
+	width: 350px;
+	margin: 5px;
+	margin-left: 40px;
+}
+controls_text > div > * {
+	flex: 1 1 50%;
+	font-size: 80%;
+}
+*[onclick] {
+	cursor: pointer;
+}
+*[onclick]:hover {
+	color: var(--button);
+}
+
+*[onclick]:active {
+	color: var(--color1);
+}
+
+span,
+wpm {
+	font-size: inherit;
+	margin: inherit;
+	padding: inherit;
 }
 
 footer {

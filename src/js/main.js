@@ -1,5 +1,6 @@
 setup = document.querySelector('setup');
 read = document.querySelector('read');
+controls_text = document.querySelector('controls_text');
 footer = document.querySelector('footer');
 footer_text = document.querySelector('footer > text');
 
@@ -9,6 +10,7 @@ text_input = document.querySelector('.text_input');
 readingInterval = false;
 wpm = 200;
 const updateWordScreenTime = () => {
+    document.querySelector('wpm').innerHTML = wpm
     wordScreenTime = ((60 / wpm) * 1000) - 60; //(sec / wpm ) * 1000  - to convert it onto milliseconds
     //- 60 just as a weigh.
 }
@@ -22,7 +24,7 @@ async function startReading(text) {
     read.style.display = "flex";
     document.body.focus()
 
-    text.replaceAll('\n', ' ')
+    text = text.replaceAll('\n', ' ');
     text_array = text.trim().split(' ')
     footer_text.innerHTML = text_array.map(x => `<w>${x}</w>`).join(' ')
     updateWordScreenTime();
@@ -34,11 +36,11 @@ async function startReading(text) {
 const mainTimeoutLoop = (start) => {
     if (start) {
         mainTimeoutLoop(false);
+        controls_text.setAttribute('darker', true)
         readingInterval = setInterval(() => {
             if (textArrayIndex >= text_array.length - 1) {
                 read_display_word.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
                 mainTimeoutLoop(false);
-
             } else {
                 word = text_array[textArrayIndex];
                 setDisplayWord(word);
@@ -50,6 +52,7 @@ const mainTimeoutLoop = (start) => {
     } else {
         typeof readingInterval == 'number' && clearInterval(readingInterval)
         readingInterval = false
+        controls_text.setAttribute('darker', false)
     }
 }
 
