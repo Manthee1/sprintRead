@@ -190,7 +190,7 @@ footer:hover > arrow {
 footer > arrow {
 	width: 100%;
 	text-align: center;
-	background-color: var(--text);
+	background-color: var(--button);
 	color: var(--background-color);
 	height: 20px;
 	font-size: 80%;

@@ -27,7 +27,7 @@ async function startReading(text) {
     document.body.focus()
 
     text.replaceAll('\n', ' ')
-    text_array = text.split(' ')
+    text_array = text.trim().split(' ')
     footer_text.innerHTML = text_array.map(x => `<w>${x}</w>`).join(' ')
     updateWordScreenTime();
     word = '';
@@ -35,19 +35,21 @@ async function startReading(text) {
     setWordDisplay("Press space to start");
 }
 
-function mainTimeOutLoop(start) {
+const mainTimeoutLoop = (start) => {
     if (start) {
-        mainTimeOutLoop(false);
+        mainTimeoutLoop(false);
         readingInterval = setInterval(() => {
-            if (textArrayIndex >= text_array.length) {
+            if (textArrayIndex >= text_array.length - 1) {
                 read_display_text.innerHTML = "<span style='font-size:150%' class='redText'>END_</span>"
-                mainTimeOutLoop(false);
+                mainTimeoutLoop(false);
+
+            } else {
+                word = text_array[textArrayIndex];
+                setWordDisplay(word);
+                if (read.style.display != "flex") mainTimeoutLoop(false);
+                textArrayIndex++
+                mainTimeoutLoop(true)
             }
-            word = text_array[textArrayIndex];
-            setWordDisplay(word);
-            if (read.style.display != "flex") mainTimeOutLoop(false);
-            textArrayIndex++
-            mainTimeOutLoop(true)
         }, wordScreenTime + word.length * 10);
     } else {
         typeof readingInterval == 'number' && clearInterval(readingInterval)
@@ -81,10 +83,10 @@ document.body.addEventListener('keydown', keyControlHandler = async (event) => {
         if (textArrayIndex < 0) textArrayIndex = 0;
         else if (textArrayIndex > text_array.length - 1) textArrayIndex = text_array.length--;
         if (readingInterval) {
-            mainTimeOutLoop(false);
+            mainTimeoutLoop(false);
             typeof pauseIn1000 != 'undefined' && clearTimeout(pauseIn1000);
             pauseIn1000 = setTimeout(() => {
-                mainTimeOutLoop(true)
+                mainTimeoutLoop(true)
             }, 500);
         }
 
@@ -92,8 +94,8 @@ document.body.addEventListener('keydown', keyControlHandler = async (event) => {
     }
 
     else if (event.keyCode == 32 /*space*/) {
-        if (readingInterval) mainTimeOutLoop(false)
-        else mainTimeOutLoop(true)
+        if (readingInterval) mainTimeoutLoop(false)
+        else mainTimeoutLoop(true)
     }
 });
 
